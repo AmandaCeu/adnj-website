@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osaka Africa Business Forum 2025 - Carving the Future with Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Updated color scheme with dark red as primary */
+            --primary-red: #951f24;
+            --primary-red-dark: #7a1a1e;
+            --primary-red-light: #b52429;
+            --primary-gold: #951f24; /* Changed to red for consistency */
+            --red-700: #951f24;
+            --red-800: #7a1a1e;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --white: #ffffff;
+            
+            /* Gradients */
+            --gradient-gold: linear-gradient(135deg, #951f24 0%, #b52429 100%);
+            --gradient-red: linear-gradient(135deg, #951f24 0%, #b52429 100%);
+            --gradient-mixed: linear-gradient(135deg, #951f24 0%, #7a1a1e 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--gray-700);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-mixed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            0% { filter: brightness(1); transform: scale(1); }
+            100% { filter: brightness(1.2); transform: scale(1.05); }
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: var(--gray-200);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loading-progress {
+            width: 0%;
+            height: 100%;
+            background: var(--gradient-mixed);
+            animation: loadingProgress 2s ease-out forwards;
+        }
+
+        @keyframes loadingProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .loading-screen.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            background: var(--primary-red);
+            padding: 8px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(149, 31, 36, 0.2);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-osaka {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            line-height: 1;
+        }
+
+        .logo-africa {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            padding: 0.625rem 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--gray-900);
+            border-bottom-color: rgba(220, 38, 38, 0.5);
+        }
+
+        .nav-link.active {
+            color: var(--red-800);
+            font-weight: 600;
+        }
+
+        .nav-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: var(--red-700);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .register-btn {
+            background: var(--primary-red);
+            color: white;
+            padding: 0.625rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(149, 31, 36, 0.3);
+        }
+
+        .register-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .register-btn:hover {
+            background: var(--primary-red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(149, 31, 36, 0.4);
+        }
+
+        .register-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-left {
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease-out 0.3s forwards;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            background: var(--gray-50);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .hero-badge .divider {
+            color: var(--gray-400);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-year {
+            color: var(--primary-red);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+            line-height: 1.5;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-event-info {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .event-date-large {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--slate-800);
+            margin-bottom: 1rem;
+        }
+
+        .date-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-red);
+        }
+
+        .venue-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .venue-item {
+            display: flex;
+            gap: 1rem;
+            align-items: baseline;
+        }
+
+        .venue-time {
+            font-weight: 600;
+            color: var(--slate-700);
+            min-width: 100px;
+            font-size: 0.875rem;
+        }
+
+        .venue-name {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        .venue-name a {
+            color: var(--gray-600);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.2s;
+        }
+
+        .venue-name a:hover {
+            color: var(--primary-red);
+        }
+
+        .link-icon {
+            width: 12px;
+            height: 12px;
+        }
+
+        .invite-only {
+            color: var(--primary-red);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-right {
+            position: relative;
+            height: 600px;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: slideInRight 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .hero-image-overlay {
+            display: none;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.05;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            top: 10%;
+            right: -150px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-red);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            bottom: 20%;
+            left: -100px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-30px) translateX(20px); }
+            50% { transform: translateY(20px) translateX(-30px); }
+            75% { transform: translateY(-20px) translateX(30px); }
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+            box-shadow: 0 10px 30px rgba(149, 31, 36, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(149, 31, 36, 0.4);
+            background: var(--primary-red-dark);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--gray-700);
+            border: 2px solid var(--gray-300);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-50);
+            border-color: var(--primary-red);
+            color: var(--primary-red);
+        }
+
+        /* About Section */
+        .section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .about {
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem;
+        }
+
+        .about-bg-image {
+            position: absolute;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: url('http://localhost:3000/src/assets/osaka-africa-business-forum/data_586_black-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            will-change: transform;
+        }
+
+        .about-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 2;
+        }
+
+        .about .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .about-title {
+            color: white;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-mixed);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        .about-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-mixed);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gray-100);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--gradient-mixed);
+            transform: scale(1.1);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        /* Forum Objectives Section */
+        .objectives {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .objectives-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .objectives-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+        
+        .objectives-row {
+            display: flex;
+            gap: 1.5rem;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .objectives-row.bottom-row {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .objective-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            flex: 1;
+            min-width: 350px;
+            max-width: 400px;
+        }
+
+        .objective-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-red);
+        }
+
+        .objective-icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            color: var(--primary-red);
+        }
+
+        .objective-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .objective-content {
+            flex: 1;
+        }
+
+        .objective-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .objective-description {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Speakers Section */
+        .speakers {
+            background: white;
+            position: relative;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .speaker-card {
+            background: var(--gray-50);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .speaker-image {
+            width: 100%;
+            height: 300px;
+            background: var(--gradient-mixed);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .speaker-info {
+            padding: 2rem;
+        }
+
+        .speaker-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .speaker-role {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Messages Section (President's Letter & Executive Message) */
+        .message-section {
+            padding: 5rem 2rem;
+        }
+
+        .message-section.alt-bg {
+            background: var(--gray-50);
+        }
+
+        .message-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .message-wrapper.reverse {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .person-card {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .person-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .person-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .person-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .person-title {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .message-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .alt-bg .message-content {
+            background: white;
+        }
+
+        .message-wrapper.reverse .message-content {
+            order: -1;
+        }
+
+        .message-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .message-excerpt {
+            color: var(--gray-700);
+            line-height: 1.8;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .message-full {
+            color: var(--gray-700);
+            line-height: 1.8;
+            font-size: 1.125rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .message-full.expanded {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .message-full p {
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: var(--primary-red);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            gap: 0.75rem;
+        }
+
+        .read-more-btn::after {
+            content: '→';
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn.expanded::after {
+            transform: rotate(90deg);
+        }
+
+        /* Organizers Section */
+        .organizers {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .organizers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .organizer-main {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .organizer-logo {
+            width: 250px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .organizer-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .organizer-name {
+            font-size: 1.25rem;
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+
+        .co-organizers {
+            margin-top: 3rem;
+        }
+
+        .co-organizers h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            margin-bottom: 2rem;
+        }
+
+        .co-organizers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .co-organizer-item {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .co-organizer-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .co-organizer-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .co-organizer-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Sponsors Section */
+        .sponsors {
+            padding: 5rem 2rem;
+            background: var(--gray-50);
+            overflow: hidden;
+        }
+
+        .sponsors-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sponsors-carousel {
+            position: relative;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+
+        .sponsors-track {
+            display: flex;
+            animation: scroll-sponsors 30s linear infinite;
+        }
+
+        .sponsors-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-sponsors {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .sponsor-item {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 120px;
+            margin: 0 2rem;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .sponsor-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .sponsor-logo {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sponsor-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+
+        /* Program Section */
+        .program {
+            background: white;
+            position: relative;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-300);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: calc(50% - 3rem);
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 3rem;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 3rem;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-mixed);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            box-shadow: 0 0 0 6px var(--white), 0 0 0 8px var(--gray-300);
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--primary-red);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+        }
+
+        .cta-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .cta-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: ctaParticleFloat 20s infinite linear;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes ctaParticleFloat {
+            0% {
+                transform: translateY(100%) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-400px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes patternMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--gray-900);
+            font-size: 1.125rem;
+            padding: 1.25rem 3rem;
+        }
+
+        .cta .btn:hover {
+            background: var(--gray-100);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--slate-800);
+            color: var(--gray-300);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray-400);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-500);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            transition: all 0.3s ease;
+            color: var(--gray-400);
+        }
+
+        .social-link:hover {
+            color: var(--primary-red);
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-up:nth-child(1) { transition-delay: 0.1s; }
+        .fade-up:nth-child(2) { transition-delay: 0.2s; }
+        .fade-up:nth-child(3) { transition-delay: 0.3s; }
+        .fade-up:nth-child(4) { transition-delay: 0.4s; }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-right {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-container {
+                padding: 2rem 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: space-between;
+                gap: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .timeline-container {
+                padding-left: 2rem;
+            }
+
+            .timeline-line {
+                left: 1rem;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: calc(100% - 3rem);
+                margin-left: 3rem !important;
+                margin-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-dot {
+                left: 1rem;
+            }
+
+            .letter-content {
+                padding: 2rem;
+            }
+
+            .letter-text p {
+                font-size: 1rem;
+            }
+
+            .letter-text p:first-child {
+                font-size: 1.125rem;
+            }
+
+            .president-signature {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .message-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .message-wrapper.reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .message-wrapper.reverse .message-content {
+                order: unset;
+            }
+
+            .person-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .message-content {
+                padding: 2rem;
+            }
+
+            .message-title {
+                font-size: 1.5rem;
+            }
+
+            .message-excerpt,
+            .message-full {
+                font-size: 1rem;
+            }
+
+            .objectives-row {
+                flex-direction: column;
+            }
+            
+            .objectives-row.bottom-row {
+                max-width: 100%;
+            }
+            
+            .objective-item {
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            .co-organizers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sponsors-track {
+                animation-duration: 20s;
+            }
+
+            .sponsor-item {
+                width: 150px;
+                height: 90px;
+                margin: 0 1rem;
+            }
+        }
+
+        /* Particles Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 20s infinite linear;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <h1 class="loading-logo">OABF 2025</h1>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/adnj-logo.png?alt=media&token=eb7926f1-fc3a-4b0c-abff-ed7f30feb401" alt="ADNJ Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-osaka">Osaka</span>
+                    <span class="logo-africa">Africa Business Forum</span>
+                </div>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#speakers" class="nav-link">Speakers</a>
+                <a href="#program" class="nav-link">Program</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="nav-indicator"></div>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="https://reg26.smp.ne.jp/regist/is?SMPFORM=mat-qdobp-2c0522767347bfc2df7648b10fb0448e" class="register-btn">Register Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span>TICAD 9 Partner Event</span>
+                    <span class="divider">•</span>
+                    <span>Expo 2025 Osaka Synergy</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Osaka Africa<br>
+                    Business Forum<br>
+                    <span class="hero-year">2025</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    "Carving the Future with Africa –<br>
+                    Youth, Dialogue, and Partnership"
+                </p>
+                
+                <div class="hero-event-info">
+                    <div class="event-date-large">
+                        <svg class="date-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        August 25, 2025
+                    </div>
+                    
+                    <div class="venue-info">
+                        <div class="venue-item">
+                            <span class="venue-time">10:00 - 16:00</span>
+                            <span class="venue-name">
+                                <a href="https://maps.app.goo.gl/9W8yrdtFv27PdNB96" target="_blank">
+                                    Higashi-Osaka City Cultural Creation Center
+                                    <svg class="link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="venue-item">
+                            <span class="venue-time">18:00 - 20:00</span>
+                            <span class="venue-name">
+                                <a href="https://maps.app.goo.gl/4qeD6jQ8xfEsBoSm8" target="_blank">
+                                    PANAF African Dining Hall
+                                    <svg class="link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                </a>
+                                <span class="invite-only">(Invitation Only)</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="https://reg26.smp.ne.jp/regist/is?SMPFORM=mat-qdobp-2c0522767347bfc2df7648b10fb0448e" class="btn btn-primary">
+                        Register for OABF 2025
+                    </a>
+                    <button class="btn btn-secondary" onclick="addToCalendar()">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        Add to Calendar
+                    </button>
+                </div>
+                
+            </div>
+            
+            <div class="hero-right">
+                <div class="hero-image-container">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/transparent.png?alt=media&token=255a5ed4-c4ad-42b9-b1f3-fa590d98d8ae" alt="Osaka Africa Business Forum" class="hero-main-image">
+                    <div class="hero-image-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="about-bg-image"></div>
+        <div class="about-overlay"></div>
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title about-title">About the Forum</h2>
+                <p class="section-subtitle about-subtitle">
+                    In synergy with global development platforms such as Expo 2025 Osaka and TICAD 9, the Osaka Africa Business Forum 2025 brings together a powerful coalition of leaders, youth, entrepreneurs, diplomats, corporations, and financial institutions to co-create a bold, shared future with Africa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forum Objectives Section -->
+    <section class="section objectives" id="objectives">
+        <div class="section-header fade-up">
+            <h2 class="section-title">Forum Objectives</h2>
+            <p class="section-subtitle">
+                Key goals driving meaningful Africa-Japan collaboration
+            </p>
+        </div>
+        
+        <div class="objectives-container">
+            <div class="objectives-grid">
+                <div class="objectives-row">
+                    <div class="objective-item fade-up">
+                        <div class="objective-icon">
+                            <!-- Trending Up Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="objective-content">
+                            <div class="objective-title">Market Acceleration</div>
+                            <div class="objective-description">Drive Japanese engagement in Africa's fast-growing sectors and emerging markets</div>
+                        </div>
+                    </div>
+                    
+                    <div class="objective-item fade-up">
+                        <div class="objective-icon">
+                            <!-- Handshake Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M11 17a4 4 0 0 0 8 0v-1a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v1a4 4 0 0 0 3.5 4"></path>
+                                <path d="M18 15l3-3-3-3"></path>
+                                <path d="M3 12h1a5 5 0 0 1 5-5h1"></path>
+                                <path d="M3 12l3 3 3-3"></path>
+                            </svg>
+                        </div>
+                        <div class="objective-content">
+                            <div class="objective-title">Sustainable Partnerships</div>
+                            <div class="objective-description">Build lasting collaborations based on mutual respect, trust, and co-creation</div>
+                        </div>
+                    </div>
+                    
+                    <div class="objective-item fade-up">
+                        <div class="objective-icon">
+                            <!-- Lightbulb Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="2" x2="12" y2="6"></line>
+                                <line x1="12" y1="18" x2="12" y2="22"></line>
+                                <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                                <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                                <line x1="2" y1="12" x2="6" y2="12"></line>
+                                <line x1="18" y1="12" x2="22" y2="12"></line>
+                                <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                                <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+                            </svg>
+                        </div>
+                        <div class="objective-content">
+                            <div class="objective-title">Innovation Spotlight</div>
+                            <div class="objective-description">Showcase youth-led initiatives and diaspora-driven innovation across sectors</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="objectives-row bottom-row">
+                    <div class="objective-item fade-up">
+                        <div class="objective-icon">
+                            <!-- Target Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
+                        <div class="objective-content">
+                            <div class="objective-title">Strategic Momentum</div>
+                            <div class="objective-description">Align with TICAD 9 goals and advance Africa's Agenda 2063 vision</div>
+                        </div>
+                    </div>
+                    
+                    <div class="objective-item fade-up">
+                        <div class="objective-icon">
+                            <!-- Globe Icon -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <div class="objective-content">
+                            <div class="objective-title">Cross-Continental Collaboration</div>
+                            <div class="objective-description">Connect institutions and grassroots organizations across Africa and Japan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section class="section speakers" id="speakers">
+        <div class="section-header fade-up">
+            <h2 class="section-title">Featured Speakers</h2>
+            <p class="section-subtitle">
+                Industry leaders and visionaries shaping the future of Africa-Japan relations
+            </p>
+        </div>
+        
+        <div class="speakers-grid">
+            <div class="speaker-card fade-up">
+                <div class="speaker-image">
+                    <img src="https://adnjapan.org/wp-content/uploads/2022/07/sacko.png" alt="Prof. Oussouby SACKO" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Prof. Oussouby SACKO</h3>
+                    <p class="speaker-role">Vice Chairman, Japan Association for the 2025 World Exposition</p>
+                </div>
+            </div>
+            <div class="speaker-card fade-up">
+                <div class="speaker-image">
+                    <img src="https://adnjapan.org/wp-content/uploads/2023/07/Noda-Yoshikazu.jpeg" alt="Mr. Yoshikazu Noda" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Mr. Yoshikazu Noda</h3>
+                    <p class="speaker-role">Mayor of Higashi-Osaka City</p>
+                </div>
+            </div>
+            <div class="speaker-card fade-up">
+                <div class="speaker-image">YY</div>
+                <div class="speaker-info">
+                    <h3 class="speaker-name">Mr. Yasuaki Yoneyama</h3>
+                    <p class="speaker-role">Global Head of Equity Finance Group, JBIC</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- President's Letter Section -->
+    <section class="message-section" id="president-letter">
+        <div class="section-header fade-up">
+            <h2 class="section-title">Letter from the President</h2>
+        </div>
+        
+        <div class="message-wrapper fade-up">
+            <div class="person-card">
+                <div class="person-image">
+                    <img src="http://localhost:3000/src/assets/osaka-africa-business-forum/data_545.jpg" alt="David Kpondehou" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:var(--gradient-mixed);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:700;\'>DK</div>'">
+                </div>
+                <h3 class="person-name">David Kpondehou</h3>
+                <p class="person-title">President, Africa Diaspora Network Japan (ADNJ)</p>
+            </div>
+            
+            <div class="message-content">
+                <h3 class="message-title">Welcome to OABF 2025</h3>
+                <div class="message-excerpt">
+                    <p>The Africa Diaspora Network in Japan (ADNJ) is pleased to welcome you to the Osaka Africa Business Forum 2025 (OABF), to be held on August 25 at the Higashiosaka Culture Creation Center.</p>
+                    <p>Now in its 4th edition, OABF 2025 is held under the inspiring theme "Carving the Future with Africa." This year marks a new milestone as we move beyond dialogue to co-creation...</p>
+                </div>
+                <div class="message-full" id="president-message-full">
+                    <p>Since the launch of the Discover Africa initiative in 2020, ADNJ has worked to deepen mutual understanding and unlock collaborative potential between African and Japanese enterprises. Following two years of successful forums centered on discovering and connecting with Africa, we are now carving new paths together with concrete business opportunities.</p>
+                    <p>By participating as a sponsor, partner, or volunteer, you will help strengthen a vibrant ecosystem that empowers innovation, entrepreneurship, and trust across borders.</p>
+                    <p><strong>Join us in building this future, with Africa.</strong></p>
+                    <p><em>Register now and see you soon!</em></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleMessage('president-message-full', this)">Read more</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Committee Message Section -->
+    <section class="message-section alt-bg" id="executive-message">
+        <div class="section-header fade-up">
+            <h2 class="section-title">Message from Executive Committee Chairperson</h2>
+            <p class="section-subtitle">Theme Concept: "Carving the Future with Africa – Youth, Dialogue, and Partnership"</p>
+        </div>
+        
+        <div class="message-wrapper reverse fade-up">
+            <div class="person-card">
+                <div class="person-image">
+                    <img src="http://localhost:3000/src/assets/osaka-africa-business-forum/data_330.jpg" alt="Dr. Oussouby SACKO" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:var(--gradient-mixed);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:700;\'>OS</div>'">
+                </div>
+                <h3 class="person-name">Dr. Oussouby SACKO</h3>
+                <p class="person-title">OABF Executive Committee Chairman<br>Vice President, Japan International Exposition 2025 Association</p>
+            </div>
+            
+            <div class="message-content">
+                <h3 class="message-title">Carving the Future Together</h3>
+                <div class="message-excerpt">
+                    <p>The Osaka Africa Business Forum 2025 embraces the theme "Carving the Future with Africa", with a special focus on the role of youth and the potential of equal, collaborative partnerships. In a time of global uncertainty and transformation, this forum calls for a shift from one-sided aid models toward mutual engagement...</p>
+                </div>
+                <div class="message-full" id="executive-message-full">
+                    <p>Africa today is not merely a recipient of development assistance, it is a dynamic continent rich in culture, creativity, and youthful energy. Its growing population, innovative spirit, and abundant resources make it a crucial partner in building a sustainable and inclusive global future. At the same time, Japan brings long-standing experience, advanced technologies, and a cultural ethic of precision and responsibility. The intersection of these complementary strengths offers fertile ground for long-term collaboration.</p>
+                    <p>At the heart of this year's forum is the belief that youth-led co-creation will shape the next century. It is the young generation, both African and Japanese, who must engage directly with each other, exchange ideas, and foster mutual understanding to unlock new possibilities. Whether through entrepreneurship, education, technology, or cultural exchange, youth are not only future leaders, they are present-day changemakers.</p>
+                    <p>This forum aims to provide a platform for emerging leaders, entrepreneurs, and creative thinkers from both regions to connect, collaborate, and envision a shared future. Through dialogue sessions, networking opportunities, and showcase events, participants will explore how trust-based partnerships can go beyond transactional business and foster deeper human connections and social innovation.</p>
+                    <p>Now is the time to redefine Africa-Japan relations, not as donor and recipient, but as equal partners engaged in shaping a common destiny. The Osaka Africa Business Forum 2025 aspires to become a milestone event that brings together voices across sectors and generations and lays the groundwork for a future built not only on commerce, but on empathy, respect, and co-creation.</p>
+                    <p><strong>Let this be the moment where new bridges are built, and where today's youth take a bold step toward a shared and sustainable tomorrow, with Africa, not just for Africa.</strong></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleMessage('executive-message-full', this)">Read more</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="section program" id="program">
+        <div class="section-header fade-up">
+            <h2 class="section-title">Event Program</h2>
+            <p class="section-subtitle">
+                A full day of insights, networking, and partnership building
+            </p>
+        </div>
+        
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item fade-up">
+                <div class="timeline-content">
+                    <div class="timeline-time">10:00 - 11:30</div>
+                    <h3 class="timeline-title">Exhibition & Networking</h3>
+                    <p class="timeline-description">Connect with African embassies, Japanese companies, and youth entrepreneurs</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item fade-up">
+                <div class="timeline-content">
+                    <div class="timeline-time">11:30 - 12:00</div>
+                    <h3 class="timeline-title">Opening Ceremony</h3>
+                    <p class="timeline-description">Welcome remarks and cultural performances</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item fade-up">
+                <div class="timeline-content">
+                    <div class="timeline-time">12:00 - 12:15</div>
+                    <h3 class="timeline-title">Keynote Speech</h3>
+                    <p class="timeline-description">Exploring Africa's role in global innovation</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item fade-up">
+                <div class="timeline-content">
+                    <div class="timeline-time">12:50 - 14:20</div>
+                    <h3 class="timeline-title">Panel Discussion</h3>
+                    <p class="timeline-description">Unlocking Investment and Trade Opportunities</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item fade-up">
+                <div class="timeline-content">
+                    <div class="timeline-time">18:00 - 20:00</div>
+                    <h3 class="timeline-title">Reception Dinner</h3>
+                    <p class="timeline-description">Exclusive networking at PANAF African Dining Hall (Invitation Only)</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-particles" id="ctaParticles"></div>
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Shape the Future with Africa?</h2>
+            <p class="cta-subtitle">Join us for this transformative event bringing together leaders, innovators, and changemakers</p>
+            <a href="https://reg26.smp.ne.jp/regist/is?SMPFORM=mat-qdobp-2c0522767347bfc2df7648b10fb0448e" class="btn">Register as a Partner or Sponsor</a>
+        </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section class="section organizers" id="organizers">
+        <div class="section-header fade-up">
+            <h2 class="section-title">Organizers</h2>
+        </div>
+        
+        <div class="organizers-container">
+            <div class="organizer-main fade-up">
+                <div class="organizer-logo">
+                    <img src="http://localhost:3000/src/assets/adnj-logo-old.png" alt="ADNJ Logo">
+                </div>
+                <p class="organizer-name">Africa Diaspora Network Japan (ADNJ)</p>
+            </div>
+            
+            <div class="co-organizers fade-up">
+                <h3>Co-Organizers</h3>
+                <div class="co-organizers-grid">
+                    <div class="co-organizer-item">
+                        <div class="co-organizer-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2022/09/Copy-of-HigashiOsaka-Logo-.jpeg" alt="Higashi-Osaka City">
+                        </div>
+                    </div>
+                    <div class="co-organizer-item">
+                        <div class="co-organizer-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2022/09/Copy-of-SMEs-Orani.jpeg" alt="SMEs Organization">
+                        </div>
+                    </div>
+                    <div class="co-organizer-item">
+                        <div class="co-organizer-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/Osaka-Chamber-of-Commerce-Logo1.jpeg" alt="Osaka Chamber of Commerce">
+                        </div>
+                    </div>
+                    <div class="co-organizer-item">
+                        <div class="co-organizer-logo">
+                            <img src="https://lh7-rt.googleusercontent.com/sheetsz/AHOq17Fxw0QHn023MWriIGrzNXwO60lCAdcXJztYbNh5NcXst8EKeMOX3qNAoFtaMcQk5E8r_hQU8K8mvEEj-pvlrZSRKpUzHPUdEVazfsuD-_xmxjeKDgddIg31ISK--Q?key=E9liT7qlBc203-DwYP2k0w" alt="Co-organizer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="section sponsors" id="sponsors">
+        <div class="section-header fade-up">
+            <h2 class="section-title">Our Sponsors</h2>
+            <p class="section-subtitle">
+                We thank our sponsors for their generous support in making this event possible
+            </p>
+        </div>
+        
+        <div class="sponsors-container">
+            <div class="sponsors-carousel fade-up">
+                <div class="sponsors-track">
+                    <!-- First set of sponsors -->
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/4_6-Africa-Samurai.jpg" alt="Africa Samurai">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/07/UNDP.jpg" alt="UNDP">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/EXPO2025LOGOyokoA-scaled.jpg" alt="EXPO 2025">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/3_1-KeizaiDoyukai.jpeg" alt="Keizai Doyukai">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/07/JETRO_OSAKA.jpg" alt="JETRO Osaka">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/07/JICA.jpg" alt="JICA">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2024/10/japanMinistryForeignAffair.png" alt="Japan Ministry of Foreign Affairs">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/1-BeninEmbassyLogo.png" alt="Benin Embassy">
+                        </div>
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/4_6-Africa-Samurai.jpg" alt="Africa Samurai">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/07/UNDP.jpg" alt="UNDP">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/EXPO2025LOGOyokoA-scaled.jpg" alt="EXPO 2025">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/3_1-KeizaiDoyukai.jpeg" alt="Keizai Doyukai">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/07/JETRO_OSAKA.jpg" alt="JETRO Osaka">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/07/JICA.jpg" alt="JICA">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2024/10/japanMinistryForeignAffair.png" alt="Japan Ministry of Foreign Affairs">
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="https://adnjapan.org/wp-content/uploads/2023/08/1-BeninEmbassyLogo.png" alt="Benin Embassy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About OABF</h3>
+                <p>The Osaka Africa Business Forum is a premier platform fostering business relationships and partnerships between Japan and Africa.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About the Forum</a>
+                <a href="#speakers">Speakers</a>
+                <a href="#program">Program</a>
+                <a href="#register">Registration</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p>Email: info@oabf2025.jp</p>
+                <p>Phone: +81-XX-XXXX-XXXX</p>
+                <p>Venue: Higashi-Osaka City Cultural Creation Center</p>
+            </div>
+            <div class="footer-section">
+                <h3>Organized By</h3>
+                <p>Africa Diaspora Network Japan (ADNJ)</p>
+                <p>Co-hosted by Higashi-Osaka City</p>
+                <p>In partnership with Expo 2025 & TICAD 9</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Africa Diaspora Network Japan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('loaded');
+            }, 2000);
+        });
+
+        // Generate Particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (20 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Generate CTA Particles
+        const ctaParticlesContainer = document.getElementById('ctaParticles');
+        if (ctaParticlesContainer) {
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'cta-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.bottom = '-10px';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (20 + Math.random() * 10) + 's';
+                ctaParticlesContainer.appendChild(particle);
+            }
+        }
+
+        // Navigation Scroll Effect
+        const header = document.getElementById('header');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navIndicator = document.querySelector('.nav-indicator');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Update active nav link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                    updateIndicator(link);
+                }
+            });
+        });
+
+        function updateIndicator(activeLink) {
+            if (activeLink && navIndicator) {
+                const linkRect = activeLink.getBoundingClientRect();
+                const navRect = activeLink.parentElement.getBoundingClientRect();
+                navIndicator.style.left = (linkRect.left - navRect.left) + 'px';
+                navIndicator.style.width = linkRect.width + 'px';
+            }
+        }
+
+        // Smooth Scrolling
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add to Calendar Function
+        function addToCalendar() {
+            const startDate = '20250825T100000';
+            const endDate = '20250825T200000';
+            const title = encodeURIComponent('Osaka Africa Business Forum 2025');
+            const details = encodeURIComponent('Main Forum: 10:00-16:00 at Higashi-Osaka City Cultural Creation Center\n\nReception Dinner: 18:00-20:00 at PANAF African Dining Hall, Expo 2025 Osaka (Invitation Only)');
+            const location = encodeURIComponent('Higashi-Osaka City Cultural Creation Center, Osaka, Japan');
+            
+            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+            
+            window.open(googleCalendarUrl, '_blank');
+        }
+
+        // Initialize
+        setTimeout(() => {
+            const firstLink = document.querySelector('.nav-link.active');
+            if (firstLink) updateIndicator(firstLink);
+        }, 100);
+
+        // Toggle Read More/Less functionality
+        function toggleMessage(messageId, button) {
+            const messageElement = document.getElementById(messageId);
+            const isExpanded = messageElement.classList.contains('expanded');
+            
+            if (isExpanded) {
+                messageElement.classList.remove('expanded');
+                button.classList.remove('expanded');
+                button.textContent = 'Read more';
+            } else {
+                messageElement.classList.add('expanded');
+                button.classList.add('expanded');
+                button.textContent = 'Read less';
+            }
+        }
+
+        // Parallax Effect for About Section
+        const aboutSection = document.querySelector('.about');
+        const aboutBgImage = document.querySelector('.about-bg-image');
+        
+        function updateParallax() {
+            if (aboutSection && aboutBgImage) {
+                const scrolled = window.pageYOffset;
+                const sectionTop = aboutSection.offsetTop;
+                const sectionHeight = aboutSection.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                // Check if section is in viewport
+                if (scrolled + windowHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
+                    // Calculate position relative to viewport
+                    const sectionMiddle = sectionTop + (sectionHeight / 2);
+                    const windowMiddle = scrolled + (windowHeight / 2);
+                    const distanceFromMiddle = windowMiddle - sectionMiddle;
+                    
+                    // Very subtle parallax - only 10% of scroll distance
+                    const yPos = distanceFromMiddle * 0.1;
+                    aboutBgImage.style.transform = `translateY(${yPos}px)`;
+                }
+            }
+        }
+        
+        // Throttle function for performance
+        function throttle(func, delay) {
+            let timeoutId;
+            let lastExecTime = 0;
+            return function (...args) {
+                const currentTime = Date.now();
+                if (currentTime - lastExecTime > delay) {
+                    func.apply(this, args);
+                    lastExecTime = currentTime;
+                } else {
+                    clearTimeout(timeoutId);
+                    timeoutId = setTimeout(() => {
+                        func.apply(this, args);
+                        lastExecTime = Date.now();
+                    }, delay - (currentTime - lastExecTime));
+                }
+            };
+        }
+        
+        // Add parallax scroll listener
+        window.addEventListener('scroll', throttle(updateParallax, 16)); // ~60fps
+        window.addEventListener('resize', updateParallax);
+        
+        // Initial parallax position
+        updateParallax();
+    </script>
+</body>
+</html>
