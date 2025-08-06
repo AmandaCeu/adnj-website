@@ -184,15 +184,16 @@
 
         .nav-links {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.25rem;
             position: relative;
         }
 
         .nav-link {
             color: var(--gray-600);
             text-decoration: none;
-            padding: 0.625rem 1rem;
+            padding: 0.625rem 0.75rem;
             font-weight: 500;
+            font-size: 0.875rem;
             transition: all 0.3s ease;
             position: relative;
             border-bottom: 2px solid transparent;
@@ -547,7 +548,7 @@
             left: 0;
             width: 100%;
             height: 120%;
-            background-image: url('http://localhost:3000/src/assets/osaka-africa-business-forum/data_586_black-bg.jpg');
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/data_586_black-bg.jpg?alt=media&token=171119e4-716a-4089-98b1-4c11baaf02dc');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -987,12 +988,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1rem;
         }
 
         .organizer-logo img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            filter: none;
         }
 
         .organizer-name {
@@ -1384,11 +1389,16 @@
             }
             
             .hero-right {
-                display: none;
+                height: 400px;
+                order: 2;
+            }
+            
+            .hero-left {
+                order: 1;
             }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .nav-links {
                 display: none;
             }
@@ -1421,6 +1431,11 @@
             
             .stat-number {
                 font-size: 1.5rem;
+            }
+            
+            .hero-right {
+                height: 300px;
+                margin-top: 2rem;
             }
 
             .timeline-container {
@@ -1590,9 +1605,11 @@
             <div class="nav-links">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#objectives" class="nav-link">Objectives</a>
                 <a href="#speakers" class="nav-link">Speakers</a>
                 <a href="#program" class="nav-link">Program</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#organizers" class="nav-link">Organizers</a>
+                <a href="#sponsors" class="nav-link">Sponsors</a>
                 <div class="nav-indicator"></div>
             </div>
             
@@ -1827,7 +1844,9 @@
                 </div>
             </div>
             <div class="speaker-card fade-up">
-                <div class="speaker-image">YY</div>
+                <div class="speaker-image">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/%E8%AA%BF%E5%91%B3%E6%96%99%E3%80%80%E7%99%BD%E3%80%80%E9%BB%92%E3%80%80%E3%82%B7%E3%83%B3%E3%83%95%E3%82%9A%E3%83%AB%E3%80%80%E3%83%AD%E3%82%B3%E3%82%99.png?alt=media&token=95ee7d76-972d-4b42-8d73-9002cb132ce1" alt="Mr. Yasuaki Yoneyama" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
                 <div class="speaker-info">
                     <h3 class="speaker-name">Mr. Yasuaki Yoneyama</h3>
                     <p class="speaker-role">Global Head of Equity Finance Group, JBIC</p>
@@ -1845,7 +1864,7 @@
         <div class="message-wrapper fade-up">
             <div class="person-card">
                 <div class="person-image">
-                    <img src="http://localhost:3000/src/assets/osaka-africa-business-forum/data_545.jpg" alt="David Kpondehou" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:var(--gradient-mixed);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:700;\'>DK</div>'">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/data_545.jpg?alt=media&token=7b1c1032-5160-4197-8b3c-13504abf62be" alt="David Kpondehou" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:var(--gradient-mixed);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:700;\'>DK</div>'">
                 </div>
                 <h3 class="person-name">David Kpondehou</h3>
                 <p class="person-title">President, Africa Diaspora Network Japan (ADNJ)</p>
@@ -1878,7 +1897,7 @@
         <div class="message-wrapper reverse fade-up">
             <div class="person-card">
                 <div class="person-image">
-                    <img src="http://localhost:3000/src/assets/osaka-africa-business-forum/data_330.jpg" alt="Dr. Oussouby SACKO" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:var(--gradient-mixed);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:700;\'>OS</div>'">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/data_330.jpg?alt=media&token=a847505c-e139-4005-bcf5-44db1db7745f" alt="Dr. Oussouby SACKO" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:var(--gradient-mixed);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:700;\'>OS</div>'">
                 </div>
                 <h3 class="person-name">Dr. Oussouby SACKO</h3>
                 <p class="person-title">OABF Executive Committee Chairman<br>Vice President, Japan International Exposition 2025 Association</p>
@@ -1979,7 +1998,7 @@
         <div class="organizers-container">
             <div class="organizer-main fade-up">
                 <div class="organizer-logo">
-                    <img src="http://localhost:3000/src/assets/adnj-logo-old.png" alt="ADNJ Logo">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/adnj-logo-old.png?alt=media&token=95b4b11b-4507-4ecb-b31d-0c6de252f26c" alt="ADNJ Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:var(--primary-red);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:700;\'>ADNJ</div>'">
                 </div>
                 <p class="organizer-name">Africa Diaspora Network Japan (ADNJ)</p>
             </div>
