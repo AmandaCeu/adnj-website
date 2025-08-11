@@ -276,12 +276,22 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-top {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-bottom {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
         .hero-left {
@@ -1387,9 +1397,11 @@
         /* Mobile Responsive */
         @media (max-width: 1024px) {
             .hero-container {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
                 padding: 3rem 1.5rem;
+            }
+            
+            .hero-top {
+                gap: 2rem;
             }
             
             .hero-right {
@@ -1403,9 +1415,17 @@
             }
             
             .hero-container {
+                padding: 2rem 1rem;
+            }
+            
+            .hero-top {
                 grid-template-columns: 1fr 1fr;
                 gap: 1.5rem;
-                padding: 2rem 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-bottom {
+                width: 100%;
             }
 
             .hero-title {
@@ -1414,7 +1434,7 @@
             
             .hero-subtitle {
                 font-size: 1rem;
-                margin-bottom: 1.5rem;
+                margin-bottom: 0;
             }
             
             .hero-badge {
@@ -1424,33 +1444,44 @@
             }
             
             .hero-event-info {
-                padding: 1rem;
+                padding: 1.5rem;
                 margin-bottom: 1.5rem;
+                width: 100%;
             }
             
             .event-date-large {
-                font-size: 1rem;
+                font-size: 1.125rem;
+                justify-content: center;
+            }
+            
+            .venue-info {
+                align-items: center;
+            }
+            
+            .venue-item {
+                justify-content: center;
             }
             
             .venue-time {
-                font-size: 0.75rem;
-                min-width: 80px;
+                font-size: 0.875rem;
+                min-width: 90px;
             }
             
             .venue-name {
-                font-size: 0.75rem;
+                font-size: 0.875rem;
             }
             
             .hero-cta {
                 flex-direction: column;
                 gap: 0.75rem;
+                width: 100%;
             }
             
             .btn {
                 width: 100%;
                 justify-content: center;
-                padding: 0.75rem 1.5rem;
-                font-size: 0.875rem;
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9375rem;
             }
             
             .hero-right {
@@ -1464,19 +1495,23 @@
         
         @media (max-width: 480px) {
             .hero-container {
+                padding: 1.5rem 0.75rem;
+            }
+            
+            .hero-top {
                 grid-template-columns: 55% 45%;
                 gap: 1rem;
-                padding: 1.5rem 0.75rem;
+                margin-bottom: 1.5rem;
             }
             
             .hero-title {
                 font-size: clamp(1.5rem, 5vw, 2rem);
-                margin-bottom: 1rem;
+                margin-bottom: 0.75rem;
             }
             
             .hero-subtitle {
                 font-size: 0.875rem;
-                margin-bottom: 1rem;
+                margin-bottom: 0;
             }
             
             .hero-badge {
@@ -1484,17 +1519,30 @@
             }
             
             .hero-event-info {
-                padding: 0.75rem;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .event-date-large {
+                font-size: 1rem;
+            }
+            
+            .venue-time {
+                font-size: 0.75rem;
+                min-width: 75px;
+            }
+            
+            .venue-name {
                 font-size: 0.75rem;
             }
             
             .hero-right {
-                height: 200px;
+                height: 180px;
             }
             
             .btn {
-                padding: 0.625rem 1rem;
-                font-size: 0.75rem;
+                padding: 0.75rem 1.25rem;
+                font-size: 0.875rem;
             }
         }
 
@@ -1687,23 +1735,34 @@
         </div>
         
         <div class="hero-container">
-            <div class="hero-left">
-                <div class="hero-badge">
-                    <span>TICAD 9 Partner Event</span>
-                    <span class="divider">•</span>
-                    <span>Expo 2025 Osaka Synergy</span>
+            <div class="hero-top">
+                <div class="hero-left">
+                    <div class="hero-badge">
+                        <span>TICAD 9 Partner Event</span>
+                        <span class="divider">•</span>
+                        <span>Expo 2025 Osaka Synergy</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Osaka Africa<br>
+                        Business Forum<br>
+                        <span class="hero-year">2025</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Carving the Future with Africa
+                    </p>
                 </div>
                 
-                <h1 class="hero-title">
-                    Osaka Africa<br>
-                    Business Forum<br>
-                    <span class="hero-year">2025</span>
-                </h1>
-                
-                <p class="hero-subtitle">
-                    Carving the Future with Africa
-                </p>
-                
+                <div class="hero-right">
+                    <div class="hero-image-container">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/transparent.png?alt=media&token=255a5ed4-c4ad-42b9-b1f3-fa590d98d8ae" alt="Osaka Africa Business Forum" class="hero-main-image">
+                        <div class="hero-image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-bottom">
                 <div class="hero-event-info">
                     <div class="event-date-large">
                         <svg class="date-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1749,14 +1808,6 @@
                         </svg>
                         Add to Calendar
                     </button>
-                </div>
-                
-            </div>
-            
-            <div class="hero-right">
-                <div class="hero-image-container">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/foodapp-ee4f1.appspot.com/o/transparent.png?alt=media&token=255a5ed4-c4ad-42b9-b1f3-fa590d98d8ae" alt="Osaka Africa Business Forum" class="hero-main-image">
-                    <div class="hero-image-overlay"></div>
                 </div>
             </div>
         </div>
